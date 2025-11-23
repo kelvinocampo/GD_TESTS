@@ -78,7 +78,7 @@ func _ready():
 	lifebar.init_health(max_health)
 
 func die() -> void:
-	print("Muerto")
+	vida_agotada()
 
 # 1. Carga la escena del proyectil
 
@@ -120,6 +120,8 @@ func _disparar_hacia_mouse() -> void:
 	nuevo_proyectil.rotation = direccion_disparo.angle()
 
 func recibir_dano(_damage):
+	if health <= 0:
+		return
 	# Restar el daño primero
 	health -= _damage
 	lifebar.health = health
@@ -130,7 +132,20 @@ func recibir_dano(_damage):
 
 func ganar_experiencia(xp: int) -> void:
 	# Aquí va tu lógica de aumento de XP, nivel, etc.
-	print("¡Ganaste ", xp, " de experiencia!")
 	experience += xp
 	experiencelabel.text = "Experiencia: " + str(experience)
+	
+	# En el script del Jugador o Game Manager
+
+const ESCENA_GAMEOVER = preload("res://scenes/GameOver.tscn")
+
+func vida_agotada():
+	# 1. Pausar el juego
+	get_tree().paused = true
+	
+	# 2. Crear una instancia de la UI
+	var pantalla_derrota = ESCENA_GAMEOVER.instantiate()
+	
+	# 3. Añadir la UI al árbol de la escena (Generalmente al nodo principal)
+	get_tree().get_root().add_child(pantalla_derrota)
 	

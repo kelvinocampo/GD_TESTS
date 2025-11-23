@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var lifebar = $LIFE
 @onready var animator = $AnimatedSprite2D
 @export var player_node: CharacterBody2D = null
+@onready var experience_scene = preload("res://scenes/experience.tscn")
 
 # Nuevo estado para controlar si el slime está dañado y no debe moverse
 var is_recovering: bool = false
@@ -68,6 +69,16 @@ func recibir_dano(_damage: int) -> void:
 	lifebar.health = health
 	
 	if health <= 0:
+		if experience_scene != null:
+			# 2. Instanciar (crear) una nueva copia del orbe
+			var nuevo_orbe = experience_scene.instantiate()
+			
+			# 3. Posicionar el orbe donde estaba el slime
+			nuevo_orbe.global_position = global_position
+
+			# 5. Añadir el orbe a la escena principal
+			# Usamos get_parent() para que el orbe esté en el mismo nivel que el slime
+			get_parent().add_child(nuevo_orbe)
 		_iniciar_muerte()
 	else:
 		# Inicia la animación de daño y el estado de recuperación

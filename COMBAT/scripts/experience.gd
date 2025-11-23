@@ -6,6 +6,7 @@ extends Area2D
 @export var velocidad_inicial: float = 150.0 # Velocidad de movimiento inicial
 @export var velocidad_aceleracion: float = 800.0 # Aceleración hacia el jugador
 @export var rango_deteccion: float = 100.0 # Distancia para iniciar la persecución
+@onready var animador = $AnimationPlayer
 
 var jugador: Node2D = null           # Referencia al jugador
 var velocidad_actual: Vector2 = Vector2.ZERO # Velocidad actual del orbe
@@ -14,6 +15,7 @@ var en_rango: bool = false           # Bandera para iniciar la persecución
 # ----------------- INICIALIZACIÓN Y DETECCIÓN -----------------
 
 func _ready() -> void:
+	animador.play("idle")
 	# 1. Conecta la señal del Area2D para cuando el jugador lo toque.
 	body_entered.connect(_on_body_entered)
 	
