@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbjwfwmemvfru"]
+[gd_scene load_steps=8 format=3 uid="uid://bbjwfwmemvfru"]
 
 [ext_resource type="PackedScene" uid="uid://8l7t3ryv6543" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://f31lxof23jvt" path="res://scenes/mapa.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://swvqh51pufsg" path="res://scenes/slime.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bf8l605uoj5li" path="res://scenes/slime_spawner.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://gsydd7b36llp" path="res://scenes/experience.tscn" id="5_iywne"]
 
 [sub_resource type="GDScript" id="GDScript_lnu2h"]
 script/source = "extends Node
@@ -42,3 +43,6 @@ max_spawn_attempts = 1000
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlimeSpawner/SpawnArea"]
 position = Vector2(17, 266.5)
 shape = SubResource("RectangleShape2D_lnu2h")
+
+[node name="EXPERIENCE" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(67, 13)

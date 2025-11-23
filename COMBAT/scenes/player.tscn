@@ -326,4 +326,12 @@ offset_top = 6.0
 offset_right = 132.0
 offset_bottom = 16.0
 
+[node name="Label" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 104.0
+offset_bottom = 43.0
+text = "Experiencia: "
+
 [node name="PuntoDisparo" type="Marker2D" parent="."]

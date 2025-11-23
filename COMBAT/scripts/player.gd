@@ -6,8 +6,11 @@ extends CharacterBody2D
 @export var health: int = 100
 # Guarda la última dirección: "right", "left", "up", "down"
 var last_dir := "right"
+var experience = 0
 
 @onready var lifebar = $Camera2D/Control/LIFE
+@onready var experiencelabel = $Camera2D/Control/Label
+
 
 const Proyectil_Escena = preload("res://scenes/proyectil.tscn")
 
@@ -71,6 +74,7 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _ready():
+	add_to_group("player")
 	lifebar.init_health(max_health)
 
 func die() -> void:
@@ -123,3 +127,10 @@ func recibir_dano(_damage):
 	# Verificar si el jugador murió
 	if health <= 0:
 		die()
+
+func ganar_experiencia(xp: int) -> void:
+	# Aquí va tu lógica de aumento de XP, nivel, etc.
+	print("¡Ganaste ", xp, " de experiencia!")
+	experience += xp
+	experiencelabel.text = "Experiencia: " + str(experience)
+	
