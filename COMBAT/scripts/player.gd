@@ -146,6 +146,9 @@ func vida_agotada():
 	# 2. Crear una instancia de la UI
 	var pantalla_derrota = ESCENA_GAMEOVER.instantiate()
 	
-	# 3. Añadir la UI al árbol de la escena (Generalmente al nodo principal)
-	get_tree().get_root().add_child(pantalla_derrota)
+	# 3. [SUGERENCIA] Pasa cualquier dato antes de añadirlo
+	# Asume que tu script de GameOver tiene una variable 'final_score'
+	# pantalla_derrota.final_score = self.puntuacion_actual 
 	
+	# 4. Añadir la UI al árbol de la escena 
+	get_tree().get_root().add_child(pantalla_derrota)

@@ -298,6 +298,9 @@ visibility_layer = 2
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_g2els")
+SPEED = null
+max_health = null
+health = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
