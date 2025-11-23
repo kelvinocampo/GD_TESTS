@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://2f6ugoqwtui5"]
+
+[ext_resource type="Script" uid="uid://mwjctl8f5c7h" path="res://scripts/life.gd" id="1_tf86k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qhqgy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqkch"]
+bg_color = Color(3.272891e-06, 0.54100156, 0.3293291, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5r03"]
+bg_color = Color(0.22430411, 0.22430411, 0.22430399, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(0, 0, 0, 0.27450982)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tuyoq"]
+bg_color = Color(18.892157, 12.725212, 14.675427, 1)
+
+[node name="LIFE" type="ProgressBar"]
+z_index = 10
+offset_left = 47.0
+offset_top = 7.0
+offset_right = 147.0
+offset_bottom = 18.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_qhqgy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dqkch")
+step = 1.0
+value = 60.0
+show_percentage = false
+script = ExtResource("1_tf86k")
+
+[node name="DAMAGE" type="ProgressBar" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_u5r03")
+theme_override_styles/fill = SubResource("StyleBoxFlat_tuyoq")
+value = 80.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

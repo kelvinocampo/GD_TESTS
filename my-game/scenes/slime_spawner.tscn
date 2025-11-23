@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf8l605uoj5li"]
+
+[ext_resource type="Script" uid="uid://dheqgx0bx10wq" path="res://scripts/slime_spawner.gd" id="1_548ng"]
+
+[node name="SlimeSpawner" type="Node2D"]
+script = ExtResource("1_548ng")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
