@@ -4,18 +4,21 @@ extends CharacterBody2D
 @export var SPEED := 100
 @export var max_health: int = 100
 @export var health: int = 100
+@export var damage:int = 10
 # Guarda la última dirección: "right", "left", "up", "down"
 var last_dir := "right"
 var experience = 0
 var levels = [
 	{
 		"xp": 30,
-		"health": 110
+		"health": 110,
+		"damage": 20,
 	},
 	{
 		"xp": 70,
-		"health": 120
-	}
+		"health": 120,
+		"damage": 30,
+	},
 ]
 var level = 0
 
@@ -106,7 +109,7 @@ func _input(event: InputEvent) -> void:
 # 4. Función de disparo
 func _disparar_hacia_mouse() -> void:
 	# Instancia el proyectil
-	var nuevo_proyectil = Proyectil_Escena.instantiate()
+	var nuevo_proyectil: ProyectilFuego = Proyectil_Escena.instantiate() as ProyectilFuego
 	
 	# Obtiene el nodo raíz del árbol (o el nodo que contenga ambos, Jugador y Proyectiles)
 	get_parent().add_child(nuevo_proyectil)
@@ -114,6 +117,7 @@ func _disparar_hacia_mouse() -> void:
 	# 4.1. Establece la posición de origen del disparo
 	var origen_disparo = punto_disparo.global_position
 	nuevo_proyectil.global_position = origen_disparo
+	nuevo_proyectil.dano = damage
 	
 	# 4.2. Calcula la dirección: Vector desde el origen hasta la posición del ratón
 	var posicion_mouse = get_global_mouse_position()
@@ -146,19 +150,27 @@ func ganar_experiencia(xp: int) -> void:
 	experience += xp
 
 	level_up()
-	xp_needed = levels[level]["xp"]
+	
+	if level >= levels.size():
+		experiencelabel.text = "Nivel: " + str(level + 1) + " (" + str(experience)+")"
+		return
+	
+	var xp_needed = levels[level]["xp"]
 
-	experiencelabel.text = "Nivel: " + str(level + 1) + " (" + str(experience) + " / "+ str(xp_needed) ")"
+	experiencelabel.text = "Nivel: " + str(level + 1) + " (" + str(experience) + " / "+ str(xp_needed) +")"
 	
 	# En el script del Jugador o Game Manager
 
 func level_up():
 	while true:
-		xp_needed = levels[level]["xp"]
+		if level >= levels.size():
+			return
+		var xp_needed = levels[level]["xp"]
 
 		if experience >= xp_needed:
 			experience -= xp_needed
 			health = levels[level]["health"]
+			damage = levels[level]["damage"]
 			level += 1
 		else:
 			return

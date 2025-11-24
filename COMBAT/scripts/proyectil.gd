@@ -1,10 +1,10 @@
-class_name Proyectil_Fuego
+class_name ProyectilFuego
 extends CharacterBody2D
 
 # --- VARIABLES DE CONFIGURACIÓN ---
 @export var velocidad: float = 800.0 # Velocidad de movimiento
 @export var duracion_maxima: float = 3.0 # Duración máxima de viaje (3 segundos)
-@export var dano: int = 10 # Daño a aplicar
+@export var dano: int # Daño a aplicar
 var direccion: Vector2 = Vector2.ZERO # Se establece al instanciar
 
 # --- Nodos ---
@@ -69,3 +69,4 @@ func _manejar_impacto() -> void:
 # Función que se llama cuando termina la animación
 func _desaparecer() -> void:
 	queue_free()
+	pass
