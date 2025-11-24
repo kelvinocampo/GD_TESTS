@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var max_health: int = 100
 @export var health: int = 100
 @export var damage:int = 10
+@export var attack_type = "fire"
 # Guarda la última dirección: "right", "left", "up", "down"
 var last_dir := "right"
 var experience = 0
@@ -24,6 +25,7 @@ var level = 0
 
 @onready var lifebar = $Camera2D/Control/LIFE
 @onready var experiencelabel = $Camera2D/Control/Label
+@onready var attack_animator = $Camera2D/Control/AnimatedSprite2D
 
 
 const Proyectil_Escena = preload("res://scenes/proyectil.tscn")
@@ -88,6 +90,7 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _ready():
+	attack_animator.play(attack_type)
 	add_to_group("player")
 	lifebar.init_health(max_health)
 
@@ -105,19 +108,21 @@ func _input(event: InputEvent) -> void:
 	# Configura esta acción en Project > Project Settings > Input Map.
 	if event.is_action_pressed("click_izquierdo"): 
 		_disparar_hacia_mouse()
+	if event.is_action_pressed("click_derecho"): 
+		change_attack()
 
 # 4. Función de disparo
 func _disparar_hacia_mouse() -> void:
 	# Instancia el proyectil
 	var nuevo_proyectil: ProyectilFuego = Proyectil_Escena.instantiate() as ProyectilFuego
 	
-	# Obtiene el nodo raíz del árbol (o el nodo que contenga ambos, Jugador y Proyectiles)
-	get_parent().add_child(nuevo_proyectil)
-	
 	# 4.1. Establece la posición de origen del disparo
 	var origen_disparo = punto_disparo.global_position
 	nuevo_proyectil.global_position = origen_disparo
 	nuevo_proyectil.dano = damage
+	nuevo_proyectil.type = attack_type
+	# Obtiene el nodo raíz del árbol (o el nodo que contenga ambos, Jugador y Proyectiles)
+	
 	
 	# 4.2. Calcula la dirección: Vector desde el origen hasta la posición del ratón
 	var posicion_mouse = get_global_mouse_position()
@@ -133,6 +138,8 @@ func _disparar_hacia_mouse() -> void:
 
 	# 4.4. Opcional: Rota el proyectil visualmente para que apunte a la dirección de disparo
 	nuevo_proyectil.rotation = direccion_disparo.angle()
+
+	get_parent().add_child(nuevo_proyectil)
 
 func recibir_dano(_damage):
 	if health <= 0:
@@ -170,6 +177,7 @@ func level_up():
 		if experience >= xp_needed:
 			experience -= xp_needed
 			health = levels[level]["health"]
+			lifebar.init_health(max_health)
 			damage = levels[level]["damage"]
 			level += 1
 		else:
@@ -190,3 +198,13 @@ func vida_agotada():
 	
 	# 4. Añadir la UI al árbol de la escena 
 	get_tree().get_root().add_child(pantalla_derrota)
+
+func change_attack():
+	if attack_type == 'fire':
+		attack_type = 'water'
+	elif attack_type == 'water':
+		attack_type = 'fire'
+	
+	print(attack_type)
+	
+	attack_animator.play(attack_type)

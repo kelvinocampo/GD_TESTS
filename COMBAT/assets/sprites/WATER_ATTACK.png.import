@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3jlxmkn82udi"
-path="res://.godot/imported/FIRE.png-a2e63cb27dc07195874cfd47b277e612.ctex"
+uid="uid://dc1yv1ywusx7d"
+path="res://.godot/imported/WATER_ATTACK.png-b49de51de53c16b70f55a8d56efca86e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/FIRE.png"
-dest_files=["res://.godot/imported/FIRE.png-a2e63cb27dc07195874cfd47b277e612.ctex"]
+source_file="res://assets/sprites/WATER_ATTACK.png"
+dest_files=["res://.godot/imported/WATER_ATTACK.png-b49de51de53c16b70f55a8d56efca86e.ctex"]
 
 [params]
 

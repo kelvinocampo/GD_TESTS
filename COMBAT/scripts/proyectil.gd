@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var velocidad: float = 800.0 # Velocidad de movimiento
 @export var duracion_maxima: float = 3.0 # Duración máxima de viaje (3 segundos)
 @export var dano: int # Daño a aplicar
+@export var type = 'fire'
 var direccion: Vector2 = Vector2.ZERO # Se establece al instanciar
 
 # --- Nodos ---
@@ -17,7 +18,7 @@ var ya_impacto: bool = false # Bandera para evitar doble manejo de colisión/tie
 
 func _ready() -> void:
 	# 1. Animación inicial
-	animador.play("default")
+	animador.play("default_" + type)
 
 	# 3. Configura e inicia el temporizador de autodestrucción
 	timer_desaparicion.wait_time = duracion_maxima
@@ -53,7 +54,7 @@ func _iniciar_explosion() -> void:
 	collision_shape.disabled = true
 	
 	# 2. Reproduce la animación de explosión
-	animador.play("explosion")
+	animador.play("explosion_" + type)
 	animador.animation_finished.connect(_desaparecer)
 
 # Función que aplica el daño al impactar y detona el proyectil
