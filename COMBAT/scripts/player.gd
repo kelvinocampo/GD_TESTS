@@ -7,6 +7,17 @@ extends CharacterBody2D
 # Guarda la última dirección: "right", "left", "up", "down"
 var last_dir := "right"
 var experience = 0
+var levels = [
+	{
+		"xp": 30,
+		"health": 110
+	},
+	{
+		"xp": 70,
+		"health": 120
+	}
+]
+var level = 0
 
 @onready var lifebar = $Camera2D/Control/LIFE
 @onready var experiencelabel = $Camera2D/Control/Label
@@ -133,9 +144,24 @@ func recibir_dano(_damage):
 func ganar_experiencia(xp: int) -> void:
 	# Aquí va tu lógica de aumento de XP, nivel, etc.
 	experience += xp
-	experiencelabel.text = "Experiencia: " + str(experience)
+
+	level_up()
+	xp_needed = levels[level]["xp"]
+
+	experiencelabel.text = "Nivel: " + str(level + 1) + " (" + str(experience) + " / "+ str(xp_needed) ")"
 	
 	# En el script del Jugador o Game Manager
+
+func level_up():
+	while true:
+		xp_needed = levels[level]["xp"]
+
+		if experience >= xp_needed:
+			experience -= xp_needed
+			health = levels[level]["health"]
+			level += 1
+		else:
+			return
 
 const ESCENA_GAMEOVER = preload("res://scenes/GameOver.tscn")
 
