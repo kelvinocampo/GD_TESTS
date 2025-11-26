@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7rim0vna0i48"]
 
 [ext_resource type="Script" uid="uid://bdhmbujyp547d" path="res://scripts/slot.gd" id="1_4v6ba"]
-[ext_resource type="Texture2D" uid="uid://yqufdu7p5t52" path="res://assets/inventory.png" id="2_vqyee"]
+[ext_resource type="Texture2D" uid="uid://cn6k0sov78dei" path="res://assets/ICONS.png" id="2_ic0fu"]
 
 [node name="Slot" type="Control"]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 64.0
@@ -12,18 +12,29 @@ offset_bottom = 64.0
 size_flags_horizontal = 4
 script = ExtResource("1_4v6ba")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(33.75, 32.5)
-scale = Vector2(2.6600003, 2.7083333)
-texture = ExtResource("2_vqyee")
-region_enabled = true
-region_rect = Rect2(0, 79, 25, 24)
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ic0fu")
+region_rect = Rect2(1, 65, 30, 30)
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(64, 65)
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 65.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="CenterContainer"]
 layout_mode = 2

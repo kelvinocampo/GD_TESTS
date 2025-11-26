@@ -4,10 +4,8 @@ extends CharacterBody2D
 @export var VELOCIDAD_NORMAL = 300.0
 @export var MULTIPLICADOR_CORRER = 2.0
 @export var SALTO = -400.0
-
-@onready var animacion = $AnimatedSprite2D
-
 @export var inventario: Inventory
+@onready var animacion = $AnimatedSprite2D
 var ultima_dir := "derecha"
 
 func _ready():

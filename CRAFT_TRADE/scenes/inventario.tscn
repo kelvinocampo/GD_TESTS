@@ -1,57 +1,156 @@
-[gd_scene load_steps=4 format=3 uid="uid://br2kr4cngqod3"]
+[gd_scene load_steps=8 format=3 uid="uid://br2kr4cngqod3"]
 
 [ext_resource type="Script" uid="uid://h0jhjfjklyn3" path="res://scripts/inventario.gd" id="1_hswsb"]
-[ext_resource type="Texture2D" uid="uid://c1tp7pqe622b5" path="res://assets/icon.svg" id="2_mu20r"]
+[ext_resource type="Texture2D" uid="uid://c6lgnvksqkjcx" path="res://assets/interface.png" id="3_1ji4w"]
 [ext_resource type="PackedScene" uid="uid://c7rim0vna0i48" path="res://scenes/slot.tscn" id="3_mu20r"]
 
-[node name="Inventario" type="Control"]
-z_index = 100
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mu20r"]
+load_path = "res://.godot/imported/ICONS.png-96681e8a962187c90edff737c4a700ac.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu20r"]
+atlas = SubResource("CompressedTexture2D_mu20r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ji4w"]
+atlas = SubResource("CompressedTexture2D_mu20r")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t2sse"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu20r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ji4w")
+}],
+"loop": false,
+"name": &"open",
+"speed": 1.0
+}]
+
+[node name="INVENTARIO" type="CanvasLayer"]
 script = ExtResource("1_hswsb")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-layout_mode = 1
+[node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_mu20r")
+color = Color(0.23921569, 0.23921569, 0.23921569, 0.5803922)
 
-[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 65.77783
-offset_top = 37.0
-offset_right = -65.77783
-offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 4
-theme_override_constants/v_separation = 4
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 2
+
+[node name="TOGGLE_INV" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/TOGGLE_INV"]
+position = Vector2(50.499992, 49.999996)
+scale = Vector2(2.7812543, 2.753717)
+sprite_frames = SubResource("SpriteFrames_t2sse")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_1ji4w")
+region_rect = Rect2(0, 0, 330, 330)
+patch_margin_left = 13
+patch_margin_top = 13
+patch_margin_right = 13
+patch_margin_bottom = 13
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 316.0
+offset_top = 18.0
+offset_right = -13.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
 columns = 6
 
-[node name="Slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
 layout_mode = 2
 
-[node name="Slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot2" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
 layout_mode = 2
 
-[node name="Slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot3" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
 layout_mode = 2
 
-[node name="Slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot4" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
 layout_mode = 2
 
-[node name="Slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot5" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
 layout_mode = 2
 
-[node name="Slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot6" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
 layout_mode = 2
+
+[node name="Slot7" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
+layout_mode = 2
+
+[node name="Slot8" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
+layout_mode = 2
+
+[node name="Slot9" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
+layout_mode = 2
+
+[node name="Slot10" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
+layout_mode = 2
+
+[node name="Slot11" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
+layout_mode = 2
+
+[node name="Slot12" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
+layout_mode = 2
+
+[node name="Slot13" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
+layout_mode = 2
+
+[node name="Slot14" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
+layout_mode = 2
+
+[node name="Slot15" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
+layout_mode = 2
+
+[node name="Slot16" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
+layout_mode = 2
+
+[node name="Slot17" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
+layout_mode = 2
+
+[node name="Slot18" parent="ColorRect/MarginContainer/VBoxContainer/NinePatchRect/GridContainer" instance=ExtResource("3_mu20r")]
+layout_mode = 2
+
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/HBoxContainer/TOGGLE_INV" to="." method="_on_toggle_inv_pressed"]
