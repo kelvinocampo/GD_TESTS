@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bh621mixh8bfq"]
+
+[ext_resource type="Texture2D" uid="uid://bqus2jscet8aj" path="res://assets/apple_item.png" id="1_wvcob"]
+[ext_resource type="Script" uid="uid://dregxk2jtmmq2" path="res://scripts/item_data.gd" id="2_vy8m6"]
+
+[resource]
+script = ExtResource("2_vy8m6")
+id_name = "manzana"
+display_name = "manzana"
+texture = ExtResource("1_wvcob")
+description = "manzana"
+icon = ExtResource("1_wvcob")
+metadata/_custom_type_script = "uid://dregxk2jtmmq2"

@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0yevype7r8vk"]
+
+[ext_resource type="Script" uid="uid://dy8wcqqo2n52g" path="res://scripts/item.gd" id="2_s8enn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vljjh"]
+bg_color = Color(0.39607844, 0.39607844, 0.39607844, 0.49019608)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="Theme" id="Theme_ro5b8"]
+
+[node name="ITEM" type="PanelContainer"]
+custom_minimum_size = Vector2(80, 80)
+offset_right = 80.0
+offset_bottom = 80.0
+scale = Vector2(0.456621, 0.45662105)
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vljjh")
+script = ExtResource("2_s8enn")
+
+[node name="Container" type="CenterContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = SubResource("Theme_ro5b8")
+
+[node name="TextureRect" type="TextureRect" parent="Container"]
+layout_mode = 2
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="CANTIDAD" type="Label" parent="MarginContainer"]
+z_index = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1

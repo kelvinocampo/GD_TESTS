@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7rim0vna0i48"]
+
+[ext_resource type="Script" uid="uid://bdhmbujyp547d" path="res://scripts/slot.gd" id="1_4v6ba"]
+[ext_resource type="Texture2D" uid="uid://yqufdu7p5t52" path="res://assets/inventory.png" id="2_vqyee"]
+
+[node name="Slot" type="Control"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+size_flags_horizontal = 4
+script = ExtResource("1_4v6ba")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(33.75, 32.5)
+scale = Vector2(2.6600003, 2.7083333)
+texture = ExtResource("2_vqyee")
+region_enabled = true
+region_rect = Rect2(0, 79, 25, 24)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(64, 65)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 65.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="visor" type="Sprite2D" parent="CenterContainer/Panel"]
+position = Vector2(0, -2)
+scale = Vector2(0.3, 0.3)
