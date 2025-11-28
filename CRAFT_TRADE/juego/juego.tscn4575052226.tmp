@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://7bf0p3syahqn"]
+
+[ext_resource type="Texture2D" uid="uid://c1tp7pqe622b5" path="res://assets/icon.svg" id="1_2ka1k"]
+[ext_resource type="PackedScene" uid="uid://bjsf3q6hvbyji" path="res://scenes/jugador.tscn" id="2_pew7j"]
+[ext_resource type="PackedScene" uid="uid://ceip633tjlh40" path="res://scenes/recurso.tscn" id="3_iq6uk"]
+[ext_resource type="PackedScene" uid="uid://br2kr4cngqod3" path="res://scenes/inventario.tscn" id="3_pew7j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
+size = Vector2(918, 55)
+
+[node name="GAME" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(396.5, 37)
+scale = Vector2(7.1953125, 0.421875)
+texture = ExtResource("1_2ka1k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(394, 37.5)
+shape = SubResource("RectangleShape2D_lbhrr")
+
+[node name="PLAYER" parent="." instance=ExtResource("2_pew7j")]
+position = Vector2(305, -101)
+
+[node name="INVENTARIO" parent="." instance=ExtResource("3_pew7j")]
+visible = false
+
+[node name="RESOURCE" parent="." instance=ExtResource("3_iq6uk")]
+position = Vector2(669, -109)
+
+[node name="RESOURCE2" parent="." instance=ExtResource("3_iq6uk")]
+position = Vector2(111, -111)
+NOMBRE_RECURSO = "recurso_2"

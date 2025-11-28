@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://bh621mixh8bfq"]
+
+[ext_resource type="Script" uid="uid://dregxk2jtmmq2" path="res://data/item_data.gd" id="1_lur7o"]
+[ext_resource type="Texture2D" uid="uid://fnk8lfj213rr" path="res://assets/ITEMS.png" id="2_67rqg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vp651"]
+atlas = ExtResource("2_67rqg")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_lur7o")
+id_name = "madera_T1"
+display_name = "madera"
+texture = SubResource("AtlasTexture_vp651")
+description = "manzana"
+metadata/_custom_type_script = "uid://dregxk2jtmmq2"

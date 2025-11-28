@@ -4,18 +4,28 @@ extends CharacterBody2D
 @export var VELOCIDAD_NORMAL = 300.0
 @export var MULTIPLICADOR_CORRER = 2.0
 @export var SALTO = -400.0
-@export var inventario: Inventory
+@export var inventario: InventarioData
 @onready var animacion = $AnimatedSprite2D
 var ultima_dir := "derecha"
+var interactuando = false
 
 func _ready():
+	animacion.animation_finished.connect(_finalizar_animacion)
 	add_to_group("jugador")
 
-func _aplicar_salto_real():
-	velocity.y = SALTO
+func _finalizar_animacion():
+	if animacion.animation == "jump":
+		animacion.play("fall")
+		return
+	if animacion.animation == "mine" or animacion.animation == "chop":
+		interactuando = false
 
-func _on_recurso_recolectado(nombre_recurso: String, cantidad: int):
-	pass
+func _on_recurso_recolectado(item, cantidad, accion):
+	if not is_on_floor() or interactuando: return false
+	inventario.agregar(item, cantidad)
+	animacion.play(accion)
+	interactuando = true
+	return true
 
 func _physics_process(delta: float) -> void:
 	var VELOCIDAD = VELOCIDAD_NORMAL
@@ -28,22 +38,20 @@ func _physics_process(delta: float) -> void:
 	# Gravedad
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
 	# INICIAR LA ANIMACIÓN DE PRE-SALTO
-	if Input.is_action_just_pressed("arriba") and is_on_floor() and animacion.animation != "jump":
+	if Input.is_action_just_pressed("arriba") and is_on_floor() and not interactuando:
 		animacion.play("jump")
-		
-		# Aplica la fuerza de salto real SOLO cuando la animación termine, y se desconecta automáticamente.
-		animacion.animation_finished.connect(_aplicar_salto_real, CONNECT_ONE_SHOT)
+		velocity.y = SALTO
 	
 	# Transición a la animación de Caída
-	if not is_on_floor() and velocity.y > 0 and animacion.animation != "fall":
+	if not is_on_floor() and velocity.y > 0 and animacion.animation != "fall" and not interactuando:
 		animacion.play("fall")
 
 	# Movimiento Lateral
 	var direccion := Input.get_axis("izquierda", "derecha")
 	
-	if direccion != 0:
+	if direccion != 0 and not interactuando:
 		velocity.x = direccion * VELOCIDAD
 
 		if direccion > 0:
@@ -59,7 +67,7 @@ func _physics_process(delta: float) -> void:
 
 	# CONTROL DE ANIMACIÓN EN EL SUELO
 	# Solo reproduce IDLE/WALK si está en el suelo Y NO está en la animación de PRE-SALTO.
-	if is_on_floor() and animacion.animation != "jump": 
+	if is_on_floor() and animacion.animation != "jump" and not interactuando: 
 		
 		# Ajustar speed_scale
 		if corriendo:
