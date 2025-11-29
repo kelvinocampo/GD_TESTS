@@ -19,7 +19,9 @@ func agregar(item: ItemData, cantidad_a_agregar: int):
 				slot.cantidad += cantidad_a_mover
 				restante -= cantidad_a_mover
 	while restante > 0:
-		var empty_slots = items.filter(func(slot): return slot.item == null)
+		var empty_slots = items.filter(
+			func(_slot): return _slot.item == null
+		)
 		if empty_slots.is_empty():
 			break
 		var slot = empty_slots[0]
