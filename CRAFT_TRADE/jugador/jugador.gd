@@ -5,7 +5,12 @@ extends CharacterBody2D
 @export var MULTIPLICADOR_CORRER = 2.0
 @export var SALTO = -400.0
 @export var inventario: InventarioData
+
 @onready var animacion = $AnimatedSprite2D
+@onready var song_timer = $song
+@onready var chop = $chop
+@onready var mine = $mine
+
 var ultima_dir := "derecha"
 var interactuando = false
 
@@ -18,12 +23,18 @@ func _finalizar_animacion():
 		animacion.play("fall")
 		return
 	if animacion.animation == "mine" or animacion.animation == "chop":
+		if animacion.animation == "chop": chop.stop()
 		interactuando = false
 
 func _on_recurso_recolectado(item, cantidad, accion):
 	if not is_on_floor() or interactuando: return false
 	inventario.agregar(item, cantidad)
 	animacion.play(accion)
+	if accion == "chop": chop.play()
+	if accion == "mine": 
+		song_timer.timeout.connect(func(): mine.play())
+		song_timer.wait_time = 0.7
+		song_timer.start()
 	interactuando = true
 	return true
 

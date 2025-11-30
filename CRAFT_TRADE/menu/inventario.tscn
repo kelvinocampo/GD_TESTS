@@ -289,3 +289,4 @@ patch_margin_bottom = 13
 position = Vector2(50.499996, 50.499996)
 scale = Vector2(1.8437505, 1.8437505)
 sprite_frames = SubResource("SpriteFrames_jjxmn")
+animation = &"open"

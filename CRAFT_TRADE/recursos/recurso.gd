@@ -1,8 +1,6 @@
 class_name ArbolT1
 extends CharacterBody2D
 
-signal recurso_recolectado(item: ItemData, cantidad: int, type: String)
-
 @export var item: ItemData
 @export var CANTIDAD_RECURSO = 1
 @export var RECOGIDAS_MAX = 5
@@ -38,7 +36,6 @@ func _on_deteccion_jugador_body_exited(body: Node2D) -> void:
 		jugador_en_rango = false
 
 func _recolectar_recurso() -> void:
-	emit_signal("recurso_recolectado", item, CANTIDAD_RECURSO, accion)
 	cantidad_recolectada += 1
 	if RECOGIDAS_MAX == cantidad_recolectada:
 		_recurso_agotado()
@@ -58,7 +55,7 @@ func respawn():
 func collect() -> void:
 	if not jugador_en_rango: return
 	
-	if Input.is_action_just_pressed("interactuar"):
+	if Input.is_action_pressed("interactuar"):
 		if cantidad_recolectada == RECOGIDAS_MAX: return
 		var exito = player_node._on_recurso_recolectado(item, CANTIDAD_RECURSO, accion)
 		if not exito: return
