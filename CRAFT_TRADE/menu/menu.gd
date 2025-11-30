@@ -8,6 +8,8 @@ extends CanvasLayer
 @onready var toggle_map = $ColorRect/MAP_TOGGLE/AnimatedSprite2D
 
 @onready var inventario_ui = $ColorRect/UI_INVENTARIO
+@onready var craft_ui = $ColorRect/UI_CRAFT
+#@onready var mapa_ui = $ColorRect/UI_MAPA
 var abierto = false
 var menu = ""
 
@@ -31,13 +33,13 @@ func inventario_control():
 	if menu == "":
 		cerrar()
 
-func control_menu(accion):
-	if Input.is_action_just_pressed(accion) and menu != accion:
+func control_menu(accion, button_pressed = ""):
+	if (Input.is_action_just_pressed(accion) and menu != accion) or (button_pressed and menu != button_pressed):
 		menu = accion
 		update_UI()
 		abrir()
 		return
-	elif Input.is_action_just_pressed(accion) and menu == accion:
+	elif (Input.is_action_just_pressed(accion) and menu == accion) or (button_pressed and menu == button_pressed):
 		menu = ""
 
 func abrir():
@@ -50,6 +52,8 @@ func cerrar():
 
 func update_UI():
 	inventario_ui.visible = false
+	craft_ui.visible = false
+	#mapa_ui.visible = false
 	toggle_inventario.play("default")
 	toggle_craft.play("default")
 	toggle_map.play("default")
@@ -57,8 +61,10 @@ func update_UI():
 		inventario_ui.visible = true
 		toggle_inventario.play("open")
 	elif menu == "craft":
+		craft_ui.visible = true
 		toggle_craft.play("open")
 	elif menu == "mapa":
+		#mapa_ui.visible = true
 		toggle_map.play("open")
 
 func _on_toggle_inv_pressed() -> void:
@@ -67,3 +73,12 @@ func _on_toggle_inv_pressed() -> void:
 			cerrar()
 		else:
 			abrir()
+
+func _on_inventory_toggle_pressed() -> void:
+	control_menu("inventario", "inventario")
+
+func _on_craft_toggle_pressed() -> void:
+	control_menu("craft", "craft")
+
+func _on_map_toggle_pressed() -> void:
+	control_menu("mapa", "mapa")

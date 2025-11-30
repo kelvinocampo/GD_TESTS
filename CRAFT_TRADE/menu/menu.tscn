@@ -1,9 +1,27 @@
-[gd_scene load_steps=19 format=3 uid="uid://br2kr4cngqod3"]
+[gd_scene load_steps=26 format=3 uid="uid://br2kr4cngqod3"]
 
-[ext_resource type="Script" uid="uid://h0jhjfjklyn3" path="res://menu/inventario.gd" id="1_hswsb"]
-[ext_resource type="Texture2D" uid="uid://c6lgnvksqkjcx" path="res://assets/interface.png" id="3_1ji4w"]
-[ext_resource type="PackedScene" uid="uid://c7rim0vna0i48" path="res://menu/slot/slot.tscn" id="3_mu20r"]
-[ext_resource type="Texture2D" uid="uid://cn6k0sov78dei" path="res://assets/ICONS.png" id="4_1ji4w"]
+[ext_resource type="Script" uid="uid://h0jhjfjklyn3" path="res://menu/menu.gd" id="1_pbjm4"]
+[ext_resource type="Texture2D" uid="uid://c6lgnvksqkjcx" path="res://assets/interface.png" id="2_svuvw"]
+[ext_resource type="PackedScene" uid="uid://c7rim0vna0i48" path="res://menu/slot/slot.tscn" id="3_juveg"]
+[ext_resource type="PackedScene" uid="uid://dhaptxhhumvho" path="res://menu/craft_item/craft_item.tscn" id="4_svuvw"]
+[ext_resource type="Texture2D" uid="uid://cn6k0sov78dei" path="res://assets/ICONS.png" id="4_v6yed"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_svuvw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_juveg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v6yed"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s4hbh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6fswf"]
+
+[sub_resource type="Theme" id="Theme_bc54p"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_svuvw")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_juveg")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_v6yed")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_s4hbh")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_6fswf")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t2sse"]
 
@@ -16,11 +34,11 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_clfm4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t6213"]
-atlas = ExtResource("4_1ji4w")
+atlas = ExtResource("4_v6yed")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ai134"]
-atlas = ExtResource("4_1ji4w")
+atlas = ExtResource("4_v6yed")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6qtn5"]
@@ -43,11 +61,11 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ji4w"]
-atlas = ExtResource("4_1ji4w")
+atlas = ExtResource("4_v6yed")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t2sse"]
-atlas = ExtResource("4_1ji4w")
+atlas = ExtResource("4_v6yed")
 region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_clfm4"]
@@ -70,11 +88,11 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kv4v4"]
-atlas = ExtResource("4_1ji4w")
+atlas = ExtResource("4_v6yed")
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2cdg"]
-atlas = ExtResource("4_1ji4w")
+atlas = ExtResource("4_v6yed")
 region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jjxmn"]
@@ -96,8 +114,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="INVENTARIO" type="CanvasLayer"]
-script = ExtResource("1_hswsb")
+[node name="MENU" type="CanvasLayer"]
+script = ExtResource("1_pbjm4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -108,6 +126,7 @@ grow_vertical = 2
 color = Color(0.23921569, 0.23921569, 0.23921569, 0.5803922)
 
 [node name="UI_INVENTARIO" type="NinePatchRect" parent="ColorRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -121,7 +140,7 @@ offset_bottom = 170.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-texture = ExtResource("3_1ji4w")
+texture = ExtResource("2_svuvw")
 region_rect = Rect2(0, 0, 330, 330)
 patch_margin_left = 13
 patch_margin_top = 13
@@ -143,58 +162,115 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 6
 
-[node name="Slot" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_juveg")]
 layout_mode = 2
 
-[node name="Slot2" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot2" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_juveg")]
 layout_mode = 2
 
-[node name="Slot3" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot3" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_juveg")]
 layout_mode = 2
 
-[node name="Slot4" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot4" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_juveg")]
 layout_mode = 2
 
-[node name="Slot5" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot5" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_juveg")]
 layout_mode = 2
 
-[node name="Slot6" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot6" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_juveg")]
 layout_mode = 2
 
-[node name="Slot7" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot7" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_juveg")]
 layout_mode = 2
 
-[node name="Slot8" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot8" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_juveg")]
 layout_mode = 2
 
-[node name="Slot9" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot9" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_juveg")]
 layout_mode = 2
 
-[node name="Slot10" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot10" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_juveg")]
 layout_mode = 2
 
-[node name="Slot11" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot11" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_juveg")]
 layout_mode = 2
 
-[node name="Slot12" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot12" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_juveg")]
 layout_mode = 2
 
-[node name="Slot13" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot13" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_juveg")]
 layout_mode = 2
 
-[node name="Slot14" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot14" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_juveg")]
 layout_mode = 2
 
-[node name="Slot15" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot15" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_juveg")]
 layout_mode = 2
 
-[node name="Slot16" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot16" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_juveg")]
 layout_mode = 2
 
-[node name="Slot17" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot17" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_juveg")]
 layout_mode = 2
 
-[node name="Slot18" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_mu20r")]
+[node name="Slot18" parent="ColorRect/UI_INVENTARIO/GridContainer" instance=ExtResource("3_juveg")]
+layout_mode = 2
+
+[node name="UI_CRAFT" type="NinePatchRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -326.0
+offset_top = -172.0
+offset_right = 326.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("2_svuvw")
+region_rect = Rect2(0, 0, 330, 330)
+patch_margin_left = 13
+patch_margin_top = 13
+patch_margin_right = 13
+patch_margin_bottom = 13
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/UI_CRAFT"]
+custom_minimum_size = Vector2(335, 262)
+layout_mode = 0
+offset_left = 304.0
+offset_top = 67.0
+offset_right = 639.0
+offset_bottom = 329.0
+theme = SubResource("Theme_bc54p")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/UI_CRAFT/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CRAFT_ITEM" parent="ColorRect/UI_CRAFT/ScrollContainer/VBoxContainer" instance=ExtResource("4_svuvw")]
+layout_mode = 2
+
+[node name="CRAFT_ITEM2" parent="ColorRect/UI_CRAFT/ScrollContainer/VBoxContainer" instance=ExtResource("4_svuvw")]
+layout_mode = 2
+
+[node name="CRAFT_ITEM4" parent="ColorRect/UI_CRAFT/ScrollContainer/VBoxContainer" instance=ExtResource("4_svuvw")]
+layout_mode = 2
+
+[node name="CRAFT_ITEM3" parent="ColorRect/UI_CRAFT/ScrollContainer/VBoxContainer" instance=ExtResource("4_svuvw")]
+layout_mode = 2
+
+[node name="CRAFT_ITEM5" parent="ColorRect/UI_CRAFT/ScrollContainer/VBoxContainer" instance=ExtResource("4_svuvw")]
+layout_mode = 2
+
+[node name="CRAFT_ITEM7" parent="ColorRect/UI_CRAFT/ScrollContainer/VBoxContainer" instance=ExtResource("4_svuvw")]
+layout_mode = 2
+
+[node name="CRAFT_ITEM6" parent="ColorRect/UI_CRAFT/ScrollContainer/VBoxContainer" instance=ExtResource("4_svuvw")]
 layout_mode = 2
 
 [node name="INVENTORY_TOGGLE" type="Button" parent="ColorRect"]
@@ -217,7 +293,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_1ji4w")
+texture = ExtResource("2_svuvw")
 patch_margin_left = 13
 patch_margin_top = 13
 patch_margin_right = 13
@@ -248,7 +324,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_1ji4w")
+texture = ExtResource("2_svuvw")
 patch_margin_left = 13
 patch_margin_top = 13
 patch_margin_right = 13
@@ -279,7 +355,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_1ji4w")
+texture = ExtResource("2_svuvw")
 patch_margin_left = 13
 patch_margin_top = 13
 patch_margin_right = 13
@@ -289,4 +365,7 @@ patch_margin_bottom = 13
 position = Vector2(50.499996, 50.499996)
 scale = Vector2(1.8437505, 1.8437505)
 sprite_frames = SubResource("SpriteFrames_jjxmn")
-animation = &"open"
+
+[connection signal="pressed" from="ColorRect/INVENTORY_TOGGLE" to="." method="_on_inventory_toggle_pressed"]
+[connection signal="pressed" from="ColorRect/CRAFT_TOGGLE" to="." method="_on_craft_toggle_pressed"]
+[connection signal="pressed" from="ColorRect/MAP_TOGGLE" to="." method="_on_map_toggle_pressed"]

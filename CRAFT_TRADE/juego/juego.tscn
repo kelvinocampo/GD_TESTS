@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c1tp7pqe622b5" path="res://assets/icon.svg" id="1_2ka1k"]
 [ext_resource type="PackedScene" uid="uid://bjsf3q6hvbyji" path="res://jugador/jugador.tscn" id="2_pew7j"]
 [ext_resource type="PackedScene" uid="uid://ceip633tjlh40" path="res://recursos/arboles/T1/arbol_T1.tscn" id="3_iq6uk"]
-[ext_resource type="PackedScene" uid="uid://br2kr4cngqod3" path="res://menu/inventario.tscn" id="3_pew7j"]
+[ext_resource type="PackedScene" uid="uid://br2kr4cngqod3" path="res://menu/menu.tscn" id="3_pew7j"]
 [ext_resource type="Resource" uid="uid://1ynwada7q6m5" path="res://menu/inventory.tres" id="4_qnwci"]
 [ext_resource type="PackedScene" uid="uid://bhww8i52muw1q" path="res://recursos/piedras/T1/piedra_T1.tscn" id="6_cwd5m"]
 
