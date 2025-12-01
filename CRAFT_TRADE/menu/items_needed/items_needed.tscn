@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb1v22dicqsls"]
+
+[ext_resource type="PackedScene" uid="uid://b0p6jo374uouy" path="res://menu/items_needed/item_needed.tscn" id="1_f1otd"]
+[ext_resource type="Script" uid="uid://hduyopdm3wau" path="res://menu/items_needed/items_needed.gd" id="1_fwpfy"]
+
+[node name="ITEMS_NEEDED" type="GridContainer"]
+columns = 2
+script = ExtResource("1_fwpfy")
+
+[node name="ITEM_NEEDED" parent="." instance=ExtResource("1_f1otd")]
+layout_mode = 2

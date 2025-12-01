@@ -10,6 +10,9 @@ extends CanvasLayer
 @onready var inventario_ui = $ColorRect/UI_INVENTARIO
 @onready var craft_ui = $ColorRect/UI_CRAFT
 #@onready var mapa_ui = $ColorRect/UI_MAPA
+
+@onready var craft_area: CraftArea = $ColorRect/UI_CRAFT/CRAFT_AREA
+
 var abierto = false
 var menu = ""
 
@@ -51,6 +54,7 @@ func cerrar():
 	abierto = false
 
 func update_UI():
+	craft_area.reset()
 	inventario_ui.visible = false
 	craft_ui.visible = false
 	#mapa_ui.visible = false

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0p6jo374uouy"]
+
+[ext_resource type="Script" uid="uid://b4xbfflt4y5g2" path="res://menu/items_needed/item_needed.gd" id="1_1cbip"]
+
+[node name="ITEM_NEEDED" type="HBoxContainer"]
+script = ExtResource("1_1cbip")
+
+[node name="NOMBRE" type="Label" parent="."]
+layout_mode = 2
+text = "NOMBRE"
+
+[node name="CANTIDAD" type="Label" parent="."]
+layout_mode = 2
+text = "99"

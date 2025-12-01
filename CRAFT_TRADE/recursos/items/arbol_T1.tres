@@ -13,4 +13,5 @@ id_name = "madera_T1"
 display_name = "madera"
 texture = SubResource("AtlasTexture_vp651")
 description = "manzana"
+type = 3
 metadata/_custom_type_script = "uid://dregxk2jtmmq2"

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CraftData" load_steps=6 format=3 uid="uid://dmy6kyfv31dsu"]
+
+[ext_resource type="Resource" uid="uid://1l3h4opnqwtq" path="res://recursos/items/rama.tres" id="1_ouf4t"]
+[ext_resource type="Script" uid="uid://c74wiltj0u2oi" path="res://data/slot_data.gd" id="2_vedpf"]
+[ext_resource type="Resource" uid="uid://bh621mixh8bfq" path="res://recursos/items/arbol_T1.tres" id="3_attws"]
+[ext_resource type="Script" uid="uid://b4tt53ynpv376" path="res://data/craft_data.gd" id="4_reprb"]
+
+[sub_resource type="Resource" id="Resource_1h8km"]
+script = ExtResource("2_vedpf")
+item = ExtResource("3_attws")
+cantidad = 1
+metadata/_custom_type_script = "uid://c74wiltj0u2oi"
+
+[resource]
+script = ExtResource("4_reprb")
+item = ExtResource("1_ouf4t")
+needed_items = Array[ExtResource("2_vedpf")]([SubResource("Resource_1h8km")])
+cantidad = 3
+metadata/_custom_type_script = "uid://b4tt53ynpv376"

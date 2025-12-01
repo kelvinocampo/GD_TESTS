@@ -12,4 +12,5 @@ script = ExtResource("1_dbqpq")
 id_name = "piedra_T1"
 display_name = "piedra"
 texture = SubResource("AtlasTexture_aaopw")
+type = 3
 metadata/_custom_type_script = "uid://dregxk2jtmmq2"

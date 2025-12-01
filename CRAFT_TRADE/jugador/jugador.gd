@@ -1,4 +1,4 @@
-class_name Player
+class_name Jugador
 extends CharacterBody2D
 
 @export var VELOCIDAD_NORMAL = 300.0
