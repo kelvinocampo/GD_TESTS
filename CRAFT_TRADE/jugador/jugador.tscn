@@ -303,8 +303,6 @@ visible = false
 position = Vector2(-2, 12)
 shape = SubResource("CapsuleShape2D_tuyoq")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="chop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_a407c")
 

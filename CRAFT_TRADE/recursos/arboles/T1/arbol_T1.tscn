@@ -124,6 +124,8 @@ collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_cngf4")
 item = ExtResource("2_bom7i")
+RECOGIDAS_MAX = 10
+TIEMPO_REGENERACION = 5
 accion = "chop"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -142,22 +144,22 @@ shape = SubResource("RectangleShape2D_cngf4")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(54, -17)
-polygon = PackedVector2Array(-76, -22, 4, -54, -31, -53, -53, -45, -191, -64, -300, -85, -153.93713, -40.448006)
+polygon = PackedVector2Array(-76, -22, -53, -32, 4, -54, -31, -53, -53, -45, -191, -64, -300, -85, -191, -55, -127.96243, -36.614426)
 one_way_collision = true
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="."]
 position = Vector2(57, 53)
-polygon = PackedVector2Array(-17, -62, -115, -56, -150, -81, -192, -93, -122, -32)
+polygon = PackedVector2Array(-17, -62, -115, -56, -150, -81, -192, -93, -115, -32)
 one_way_collision = true
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
 position = Vector2(65, 136)
-polygon = PackedVector2Array(-146, -83, -33, -102, -25, -95, 24, -77, -264, -65, -209, -83)
+polygon = PackedVector2Array(-146, -83, -33, -102, -25, -95, 24, -77, -25, -75, -146, -70, -264, -65, -209, -83)
 one_way_collision = true
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="."]
 position = Vector2(65, 136)
-polygon = PackedVector2Array(-295, -275, -261, -302, -218, -294, -145, -290, -90, -281, -33, -292, -81, -266)
+polygon = PackedVector2Array(-295, -275, -261, -302, -218, -294, -145, -290, -90, -281, -33, -292, -90, -268, -218, -272)
 one_way_collision = true
 
 [node name="RESPAWN" type="Timer" parent="."]

@@ -45,6 +45,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("rapido"):
 		VELOCIDAD *= MULTIPLICADOR_CORRER
 		corriendo = true
+	
+	if Input.is_action_pressed("abajo") and is_on_floor():
+		position.y += 2
 
 	# Gravedad
 	if not is_on_floor():
