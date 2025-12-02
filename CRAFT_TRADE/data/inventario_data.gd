@@ -44,14 +44,22 @@ func conseguir_cantidad(item_data: ItemData) -> int:
 func remover(item: ItemData, cantidad_a_eliminar: int):
 	if item == null or cantidad_a_eliminar <= 0:
 		return
+		
 	var restante = cantidad_a_eliminar
-	var item_slots = items.filter(func(slot): return slot.item == item)
-	for slot in item_slots:
+	var item_slots_con_item = items.filter(func(slot): return slot.item == item)
+	
+	for slot in item_slots_con_item:
 		if restante == 0:
-			break # Todo eliminado
-		var espacio_disponible = item.max_stack - slot.cantidad
-		if espacio_disponible > 0:
-			var cantidad_a_mover = min(restante, espacio_disponible)
-			slot.cantidad -= cantidad_a_mover
-			restante -= cantidad_a_mover
+			break
+			
+		var cantidad_a_remover = min(restante, slot.cantidad)
+		
+		slot.cantidad -= cantidad_a_remover
+		restante -= cantidad_a_remover
+		
+		if slot.cantidad <= 0:
+			var slot_index = items.find(slot)
+			if slot_index != -1:
+				items.remove_at(slot_index)
+				
 	update.emit()

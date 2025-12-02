@@ -6,6 +6,7 @@ class_name Slot
 
 func update(slot: SlotData):
 	if not slot.item:
+		label_cantidad.text = ""
 		item_visual.visible = false
 	else:
 		if slot.cantidad:
