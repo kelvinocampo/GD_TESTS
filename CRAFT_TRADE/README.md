@@ -34,4 +34,4 @@ El objetivo principal es experimentar y asentar las bases de mecánicas de gesti
 ---
 *Este proyecto es un entorno de pruebas y aprendizaje.*
 
-Se acredita el desarrollo de assets para el sistema de combate al compañero [Juan Angel (juanangel89)](https://github.com/juanangel89).
+Se acredita el desarrollo de assets para el sistema de crafteo y recoleccion al compañero [Juan Angel (juanangel89)](https://github.com/juanangel89).
