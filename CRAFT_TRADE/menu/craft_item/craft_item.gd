@@ -1,3 +1,4 @@
+class_name CraftItem
 extends Button
 
 signal seleccionar_craft_item(craft_item: CraftData)

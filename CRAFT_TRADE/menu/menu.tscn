@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://h0jhjfjklyn3" path="res://menu/menu.gd" id="1_pbjm4"]
 [ext_resource type="Texture2D" uid="uid://c6lgnvksqkjcx" path="res://assets/interface.png" id="2_svuvw"]
 [ext_resource type="PackedScene" uid="uid://c7rim0vna0i48" path="res://menu/slot/slot.tscn" id="3_juveg"]
-[ext_resource type="PackedScene" uid="uid://dhaptxhhumvho" path="res://menu/craft_item/craft_item.tscn" id="4_svuvw"]
+[ext_resource type="Script" uid="uid://dl3tmc2la4loc" path="res://menu/craft_list.gd" id="4_6fswf"]
 [ext_resource type="Texture2D" uid="uid://cn6k0sov78dei" path="res://assets/ICONS.png" id="4_v6yed"]
 [ext_resource type="Texture2D" uid="uid://fnk8lfj213rr" path="res://assets/ITEMS.png" id="5_juveg"]
 [ext_resource type="Script" uid="uid://3pq5uh4d6wdi" path="res://menu/craft_area.gd" id="5_v6yed"]
@@ -255,13 +255,11 @@ theme = SubResource("Theme_bc54p")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/UI_CRAFT/ScrollContainer"]
+[node name="CRAFT_LIST" type="VBoxContainer" parent="ColorRect/UI_CRAFT/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="CRAFT_ITEM" parent="ColorRect/UI_CRAFT/ScrollContainer/VBoxContainer" instance=ExtResource("4_svuvw")]
-layout_mode = 2
+script = ExtResource("4_6fswf")
 
 [node name="CRAFT_AREA" type="VBoxContainer" parent="ColorRect/UI_CRAFT"]
 layout_mode = 0
