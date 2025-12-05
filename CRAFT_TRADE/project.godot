@@ -13,7 +13,6 @@ config_version=5
 config/name="CRAFT_TRADE"
 run/main_scene="uid://7bf0p3syahqn"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://assets/icon.svg"
 
 [display]
 

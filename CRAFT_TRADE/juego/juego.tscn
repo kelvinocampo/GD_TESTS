@@ -1,45 +1,33 @@
-[gd_scene load_steps=9 format=3 uid="uid://7bf0p3syahqn"]
+[gd_scene load_steps=8 format=3 uid="uid://7bf0p3syahqn"]
 
-[ext_resource type="Texture2D" uid="uid://c1tp7pqe622b5" path="res://assets/icon.svg" id="1_2ka1k"]
 [ext_resource type="Script" uid="uid://dq147c1x6rddx" path="res://juego/camera_2d.gd" id="2_21eam"]
 [ext_resource type="PackedScene" uid="uid://bjsf3q6hvbyji" path="res://jugador/jugador.tscn" id="2_pew7j"]
 [ext_resource type="PackedScene" uid="uid://ceip633tjlh40" path="res://recursos/arboles/T1/arbol_T1.tscn" id="3_iq6uk"]
 [ext_resource type="PackedScene" uid="uid://br2kr4cngqod3" path="res://menu/menu.tscn" id="3_pew7j"]
 [ext_resource type="Resource" uid="uid://1ynwada7q6m5" path="res://menu/inventory.tres" id="4_qnwci"]
 [ext_resource type="PackedScene" uid="uid://bhww8i52muw1q" path="res://recursos/piedras/T1/piedra_T1.tscn" id="6_cwd5m"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
-size = Vector2(1573, 55)
+[ext_resource type="PackedScene" uid="uid://btpa0i02jpppt" path="res://mapa/mapa.tscn" id="8_cvt5f"]
 
 [node name="GAME" type="Node2D"]
 
-[node name="PLAYER" parent="." instance=ExtResource("2_pew7j")]
-position = Vector2(305, -101)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_21eam")
+
+[node name="PLAYER" parent="." instance=ExtResource("2_pew7j")]
+position = Vector2(305, -101)
 
 [node name="MENU" parent="." instance=ExtResource("3_pew7j")]
 visible = false
 inventario = ExtResource("4_qnwci")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_mask = 4
+[node name="MAPA" parent="." instance=ExtResource("8_cvt5f")]
+position = Vector2(-748, 39)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(67.5, 37)
-scale = Vector2(12.3359375, 0.421875)
-texture = ExtResource("1_2ka1k")
+[node name="RESOURCE" parent="MAPA" instance=ExtResource("3_iq6uk")]
+position = Vector2(2591, -85)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(66.5, 37.5)
-shape = SubResource("RectangleShape2D_lbhrr")
+[node name="RESOURCE2" parent="MAPA" instance=ExtResource("3_iq6uk")]
+position = Vector2(1008, -85)
 
-[node name="RESOURCE" parent="." instance=ExtResource("3_iq6uk")]
-position = Vector2(669, -106)
-
-[node name="RESOURCE2" parent="." instance=ExtResource("3_iq6uk")]
-position = Vector2(111, -106)
-
-[node name="ARBOL_T1" parent="." instance=ExtResource("6_cwd5m")]
-position = Vector2(-332, -44)
+[node name="ARBOL_T1" parent="MAPA" instance=ExtResource("6_cwd5m")]
+position = Vector2(1539, -343)
