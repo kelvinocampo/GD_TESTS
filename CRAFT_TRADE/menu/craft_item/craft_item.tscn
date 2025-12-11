@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cn6k0sov78dei" path="res://assets/ICONS.png" id="1_mpw5v"]
 [ext_resource type="Script" uid="uid://cu6isyfpc26dr" path="res://menu/craft_item/craft_item.gd" id="1_wf5i4"]
-[ext_resource type="Resource" uid="uid://dmy6kyfv31dsu" path="res://recursos/craft/rama.tres" id="2_wf5i4"]
+[ext_resource type="Resource" uid="uid://dmy6kyfv31dsu" path="res://recursos/craft/pico_T2.tres" id="2_wf5i4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_043lm"]
 

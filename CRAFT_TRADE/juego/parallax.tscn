@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://b77cc3pppm7lo"]
+
+[ext_resource type="Texture2D" uid="uid://bfmq4l76hggm4" path="res://assets/fondo.png" id="1_mbf78"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_247f8"]
+atlas = ExtResource("1_mbf78")
+region = Rect2(0, 2560, 1200, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llx12"]
+atlas = ExtResource("1_mbf78")
+region = Rect2(0, 1920, 1200, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbf78"]
+atlas = ExtResource("1_mbf78")
+region = Rect2(0, 1280, 1200, 640)
+
+[node name="Parallax" type="Node2D"]
+
+[node name="CUEVA_1" type="Node2D" parent="."]
+
+[node name="ParallaxLayer" type="Parallax2D" parent="CUEVA_1"]
+scroll_scale = Vector2(0.7, 0.8)
+repeat_size = Vector2(3600, 0)
+repeat_times = 3
+
+[node name="FONDO" type="Sprite2D" parent="CUEVA_1/ParallaxLayer"]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_247f8")
+
+[node name="ParallaxLayer2" type="Parallax2D" parent="CUEVA_1"]
+scroll_scale = Vector2(0.8, 0.9)
+repeat_size = Vector2(3600, 0)
+repeat_times = 3
+
+[node name="FONDO" type="Sprite2D" parent="CUEVA_1/ParallaxLayer2"]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_llx12")
+
+[node name="ParallaxLayer3" type="Parallax2D" parent="CUEVA_1"]
+scroll_scale = Vector2(0.9, 1)
+repeat_size = Vector2(3600, 0)
+repeat_times = 3
+
+[node name="FONDO" type="Sprite2D" parent="CUEVA_1/ParallaxLayer3"]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_mbf78")

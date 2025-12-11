@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://br2kr4cngqod3"]
+[gd_scene load_steps=34 format=3 uid="uid://br2kr4cngqod3"]
 
 [ext_resource type="Script" uid="uid://h0jhjfjklyn3" path="res://menu/menu.gd" id="1_pbjm4"]
 [ext_resource type="Texture2D" uid="uid://c6lgnvksqkjcx" path="res://assets/interface.png" id="2_svuvw"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://fnk8lfj213rr" path="res://assets/ITEMS.png" id="5_juveg"]
 [ext_resource type="Script" uid="uid://3pq5uh4d6wdi" path="res://menu/craft_area.gd" id="5_v6yed"]
 [ext_resource type="PackedScene" uid="uid://bb1v22dicqsls" path="res://menu/items_needed/items_needed.tscn" id="7_s4hbh"]
+[ext_resource type="Script" uid="uid://ilyn42e1ehi4" path="res://menu/filtro_craft.gd" id="8_6fswf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_svuvw"]
 
@@ -29,6 +30,12 @@ VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_6fswf")
 [sub_resource type="AtlasTexture" id="AtlasTexture_juveg"]
 atlas = ExtResource("5_juveg")
 region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bc54p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_043lm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iesyu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t2sse"]
 
@@ -289,6 +296,32 @@ layout_mode = 2
 layout_mode = 2
 text = "CREAR"
 
+[node name="NinePatchRect" type="NinePatchRect" parent="ColorRect/UI_CRAFT"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 13.0
+offset_right = 639.0
+offset_bottom = 63.0
+texture = ExtResource("2_svuvw")
+patch_margin_left = 13
+patch_margin_top = 13
+patch_margin_right = 13
+patch_margin_bottom = 13
+
+[node name="LineEdit" type="LineEdit" parent="ColorRect/UI_CRAFT/NinePatchRect"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 13.0
+offset_right = 319.0
+offset_bottom = 37.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bc54p")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_043lm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iesyu")
+placeholder_text = "Filtrar"
+alignment = 1
+clear_button_enabled = true
+script = ExtResource("8_6fswf")
+
 [node name="INVENTORY_TOGGLE" type="Button" parent="ColorRect"]
 layout_mode = 0
 offset_left = 802.0
@@ -383,6 +416,7 @@ scale = Vector2(1.8437505, 1.8437505)
 sprite_frames = SubResource("SpriteFrames_jjxmn")
 
 [connection signal="pressed" from="ColorRect/UI_CRAFT/CRAFT_AREA/CRAFT" to="ColorRect/UI_CRAFT/CRAFT_AREA" method="_on_craft_pressed"]
+[connection signal="text_changed" from="ColorRect/UI_CRAFT/NinePatchRect/LineEdit" to="ColorRect/UI_CRAFT/NinePatchRect/LineEdit" method="_on_text_changed"]
 [connection signal="pressed" from="ColorRect/INVENTORY_TOGGLE" to="." method="_on_inventory_toggle_pressed"]
 [connection signal="pressed" from="ColorRect/CRAFT_TOGGLE" to="." method="_on_craft_toggle_pressed"]
 [connection signal="pressed" from="ColorRect/MAP_TOGGLE" to="." method="_on_map_toggle_pressed"]

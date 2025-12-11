@@ -5,6 +5,10 @@ extends CharacterBody2D
 @export var MULTIPLICADOR_CORRER = 2.0
 @export var SALTO = -400.0
 @export var inventario: InventarioData
+@export var nivel = {
+	"chop": 0,
+	"mine": 0,
+}
 
 @onready var animacion = $AnimatedSprite2D
 @onready var song_timer = $song

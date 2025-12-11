@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://5a8baeaqmy3j"]
+
+[ext_resource type="Script" uid="uid://dregxk2jtmmq2" path="res://data/item_data.gd" id="1_cpiu2"]
+[ext_resource type="Texture2D" uid="uid://espuwulo8i1v" path="res://assets/ITEMS.png" id="2_pq6yx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab4pe"]
+atlas = ExtResource("2_pq6yx")
+region = Rect2(0, 96, 32, 32)
+
+[resource]
+script = ExtResource("1_cpiu2")
+id_name = "diamante"
+display_name = "diamante"
+texture = SubResource("AtlasTexture_ab4pe")
+description = "diamante"
+stackable = false
+max_stack = 1
+type = 1
+metadata/_custom_type_script = "uid://dregxk2jtmmq2"

@@ -6,8 +6,11 @@ extends CharacterBody2D
 @export var RECOGIDAS_MAX = 5
 @export var TIEMPO_REGENERACION = 10
 @export var accion: String
+@export var nivel: int = 0
+
 @onready var animacion = $AnimatedSprite2D
 @onready var timer = $RESPAWN
+
 var cantidad_recolectada = 0
 var player_node: Node = null
 var jugador_en_rango: bool = false
@@ -57,6 +60,7 @@ func collect() -> void:
 	
 	if Input.is_action_pressed("interactuar"):
 		if cantidad_recolectada == RECOGIDAS_MAX: return
+		if player_node.nivel[accion] < nivel: return
 		var exito = player_node._on_recurso_recolectado(item, CANTIDAD_RECURSO, accion)
 		if not exito: return
 		_recolectar_recurso()

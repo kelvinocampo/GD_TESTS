@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://oxsle0jjbjjg"]
+
+[ext_resource type="Script" uid="uid://dregxk2jtmmq2" path="res://data/item_data.gd" id="1_emfhn"]
+[ext_resource type="Texture2D" uid="uid://espuwulo8i1v" path="res://assets/ITEMS.png" id="2_moxuv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab4pe"]
+atlas = ExtResource("2_moxuv")
+region = Rect2(32, 128, 32, 32)
+
+[resource]
+script = ExtResource("1_emfhn")
+id_name = "hacha_T1"
+display_name = "hacha"
+texture = SubResource("AtlasTexture_ab4pe")
+description = "hacha"
+stackable = false
+max_stack = 1
+type = 1
+metadata/_custom_type_script = "uid://dregxk2jtmmq2"

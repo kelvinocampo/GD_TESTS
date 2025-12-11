@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cv0ligtrbwkwm"]
+
+[ext_resource type="Script" uid="uid://dregxk2jtmmq2" path="res://data/item_data.gd" id="1_nv2sp"]
+[ext_resource type="Texture2D" uid="uid://espuwulo8i1v" path="res://assets/ITEMS.png" id="2_1gyt6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5ixp"]
+atlas = ExtResource("2_1gyt6")
+region = Rect2(96, 64, 32, 32)
+
+[resource]
+script = ExtResource("1_nv2sp")
+id_name = "acero"
+display_name = "acero"
+texture = SubResource("AtlasTexture_f5ixp")
+description = "acero"
+type = 3
+metadata/_custom_type_script = "uid://dregxk2jtmmq2"

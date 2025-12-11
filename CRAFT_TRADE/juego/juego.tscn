@@ -1,14 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://7bf0p3syahqn"]
+[gd_scene load_steps=9 format=3 uid="uid://7bf0p3syahqn"]
 
 [ext_resource type="Script" uid="uid://dq147c1x6rddx" path="res://juego/camera_2d.gd" id="2_21eam"]
 [ext_resource type="PackedScene" uid="uid://bjsf3q6hvbyji" path="res://jugador/jugador.tscn" id="2_pew7j"]
-[ext_resource type="PackedScene" uid="uid://ceip633tjlh40" path="res://recursos/arboles/T1/arbol_T1.tscn" id="3_iq6uk"]
+[ext_resource type="PackedScene" uid="uid://ceip633tjlh40" path="res://recursos/arboles/arbol_T1.tscn" id="3_iq6uk"]
 [ext_resource type="PackedScene" uid="uid://br2kr4cngqod3" path="res://menu/menu.tscn" id="3_pew7j"]
 [ext_resource type="Resource" uid="uid://1ynwada7q6m5" path="res://menu/inventory.tres" id="4_qnwci"]
-[ext_resource type="PackedScene" uid="uid://bhww8i52muw1q" path="res://recursos/piedras/T1/piedra_T1.tscn" id="6_cwd5m"]
+[ext_resource type="PackedScene" uid="uid://bhww8i52muw1q" path="res://recursos/piedras/piedra_T1.tscn" id="6_cwd5m"]
 [ext_resource type="PackedScene" uid="uid://btpa0i02jpppt" path="res://mapa/mapa.tscn" id="8_cvt5f"]
+[ext_resource type="PackedScene" uid="uid://b77cc3pppm7lo" path="res://juego/parallax.tscn" id="8_x3eyv"]
 
 [node name="GAME" type="Node2D"]
+
+[node name="Parallax2D" parent="." instance=ExtResource("8_x3eyv")]
+z_index = -1
+position = Vector2(588, -317)
+scale = Vector2(0.7, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("2_21eam")

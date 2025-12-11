@@ -1,63 +1,63 @@
 [gd_scene load_steps=20 format=3 uid="uid://bhww8i52muw1q"]
 
-[ext_resource type="Script" uid="uid://qsnpc4m5hnwg" path="res://recursos/recurso.gd" id="1_n3bng"]
-[ext_resource type="Resource" uid="uid://db3uq5albewue" path="res://recursos/items/piedra_T1.tres" id="2_lwm5u"]
-[ext_resource type="Texture2D" uid="uid://dmf2pna1nicq6" path="res://assets/recursos/piedra_T1.png" id="3_lwm5u"]
+[ext_resource type="Script" uid="uid://qsnpc4m5hnwg" path="res://recursos/recurso.gd" id="1_umujb"]
+[ext_resource type="Resource" uid="uid://db3uq5albewue" path="res://recursos/items/piedra_T1.tres" id="2_d5lm7"]
+[ext_resource type="Texture2D" uid="uid://dmf2pna1nicq6" path="res://assets/recursos/piedra_T1.png" id="3_o1r3i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ywjyd"]
-atlas = ExtResource("3_lwm5u")
+atlas = ExtResource("3_o1r3i")
 region = Rect2(0, 0, 196, 196)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ai77s"]
-atlas = ExtResource("3_lwm5u")
+atlas = ExtResource("3_o1r3i")
 region = Rect2(196, 0, 196, 196)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_udqjg"]
-atlas = ExtResource("3_lwm5u")
+atlas = ExtResource("3_o1r3i")
 region = Rect2(392, 0, 196, 196)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_632o0"]
-atlas = ExtResource("3_lwm5u")
+atlas = ExtResource("3_o1r3i")
 region = Rect2(588, 0, 196, 196)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ud58"]
-atlas = ExtResource("3_lwm5u")
+atlas = ExtResource("3_o1r3i")
 region = Rect2(0, 196, 196, 196)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xulsi"]
-atlas = ExtResource("3_lwm5u")
+atlas = ExtResource("3_o1r3i")
 region = Rect2(196, 196, 196, 196)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_io3ex"]
-atlas = ExtResource("3_lwm5u")
+atlas = ExtResource("3_o1r3i")
 region = Rect2(392, 196, 196, 196)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gjq7p"]
-atlas = ExtResource("3_lwm5u")
+atlas = ExtResource("3_o1r3i")
 region = Rect2(588, 196, 196, 196)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_da3oo"]
-atlas = ExtResource("3_lwm5u")
+atlas = ExtResource("3_o1r3i")
 region = Rect2(0, 392, 196, 196)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jcni"]
-atlas = ExtResource("3_lwm5u")
+atlas = ExtResource("3_o1r3i")
 region = Rect2(196, 392, 196, 196)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lsqv7"]
-atlas = ExtResource("3_lwm5u")
+atlas = ExtResource("3_o1r3i")
 region = Rect2(392, 392, 196, 196)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fhkgu"]
-atlas = ExtResource("3_lwm5u")
+atlas = ExtResource("3_o1r3i")
 region = Rect2(588, 392, 196, 196)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ri3mn"]
-atlas = ExtResource("3_lwm5u")
+atlas = ExtResource("3_o1r3i")
 region = Rect2(0, 588, 196, 196)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qxm86"]
-atlas = ExtResource("3_lwm5u")
+atlas = ExtResource("3_o1r3i")
 region = Rect2(196, 588, 196, 196)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gjq7p"]
@@ -122,8 +122,8 @@ size = Vector2(386, 252)
 z_index = -1
 collision_layer = 2
 collision_mask = 4
-script = ExtResource("1_n3bng")
-item = ExtResource("2_lwm5u")
+script = ExtResource("1_umujb")
+item = ExtResource("2_d5lm7")
 RECOGIDAS_MAX = 10
 TIEMPO_REGENERACION = 5
 accion = "mine"
@@ -138,7 +138,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeteccionJugador"]
-position = Vector2(-57, -72)
+position = Vector2(-62, -60)
 shape = SubResource("RectangleShape2D_cngf4")
 
 [node name="RESPAWN" type="Timer" parent="."]
@@ -150,7 +150,13 @@ one_way_collision = true
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
 position = Vector2(-61, 72)
-polygon = PackedVector2Array(-93, -115, -70, -121, -5, -115)
+polygon = PackedVector2Array(-93, -115, -93, -116, -70, -121, -5, -115)
+disabled = true
+one_way_collision = true
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="."]
+position = Vector2(-63, 98)
+polygon = PackedVector2Array(-104, -122, -40, -121, -3, -141, -45, -126)
 one_way_collision = true
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="."]

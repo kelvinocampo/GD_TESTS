@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="CraftData" load_steps=8 format=3 uid="uid://7tqaljgkjwp3"]
+
+[ext_resource type="Script" uid="uid://c74wiltj0u2oi" path="res://data/slot_data.gd" id="2_ii3fu"]
+[ext_resource type="Resource" uid="uid://b83y4j4agqnv" path="res://recursos/items/hierro.tres" id="3_h8kfl"]
+[ext_resource type="Resource" uid="uid://cv0ligtrbwkwm" path="res://recursos/items/lingote_acero.tres" id="3_yev8a"]
+[ext_resource type="Resource" uid="uid://b2xf08cukhqj0" path="res://recursos/items/carbon.tres" id="4_kt6s2"]
+[ext_resource type="Script" uid="uid://b4tt53ynpv376" path="res://data/craft_data.gd" id="6_1t0ny"]
+
+[sub_resource type="Resource" id="Resource_ii3fu"]
+script = ExtResource("2_ii3fu")
+item = ExtResource("3_h8kfl")
+cantidad = 2
+metadata/_custom_type_script = "uid://c74wiltj0u2oi"
+
+[sub_resource type="Resource" id="Resource_yev8a"]
+script = ExtResource("2_ii3fu")
+item = ExtResource("4_kt6s2")
+cantidad = 2
+metadata/_custom_type_script = "uid://c74wiltj0u2oi"
+
+[resource]
+script = ExtResource("6_1t0ny")
+item = ExtResource("3_yev8a")
+needed_items = Array[ExtResource("2_ii3fu")]([SubResource("Resource_ii3fu"), SubResource("Resource_yev8a")])
+cantidad = 1
+metadata/_custom_type_script = "uid://b4tt53ynpv376"

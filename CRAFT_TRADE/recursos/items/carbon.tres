@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://b2xf08cukhqj0"]
+
+[ext_resource type="Script" uid="uid://dregxk2jtmmq2" path="res://data/item_data.gd" id="1_pgmpk"]
+
+[resource]
+script = ExtResource("1_pgmpk")
+id_name = "carbon"
+display_name = "carbon"
+description = "carbon"
+type = 3
+metadata/_custom_type_script = "uid://dregxk2jtmmq2"
